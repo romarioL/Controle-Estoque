@@ -1,0 +1,26 @@
+.card-login {
+	background-color: white;
+	width: 300px;
+	height: 300px;
+	margin-top: 190px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	
+}
+
+.banner {
+	text-align: center;
+}
+
+
+#modalLogin {
+	width: 300px;
+	height: 300px;
+	padding: 50px;
+}
+
+.painel {
+	margin: 50px;
+}
+
