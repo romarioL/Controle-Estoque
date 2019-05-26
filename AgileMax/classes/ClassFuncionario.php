@@ -52,11 +52,30 @@ class ClassFuncionario extends ClassConexao {
 		while($fetch = $stm->fetch(\PDO::FETCH_ASSOC)) {
 			$array[$i] = ['id' => $fetch['id'], 'nome' => $fetch['nome'], 'usuario' => $fetch['usuario'], 'senha' => $fetch['senha'] ];
 
-		
-          $i++;
+		$i++;
+          
 			
 		}
 
 		return $array;
+	}
+
+	public function selecionarFuncionario($id) {
+
+		$conectar = $this->conectar();
+		$stm = $conectar->prepare("SELECT id, nome, usuario, senha  FROM funcionarios WHERE id = :id");
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->execute();
+		$i = 0;
+		while($fetch = $stm->fetch(\PDO::FETCH_ASSOC)) {
+			$array[$i] = ['id' => $fetch['id'], 'nome' => $fetch['nome'], 'usuario' => $fetch['usuario'], 'senha' => $fetch['senha'] ];
+
+		$i++;
+          
+			
+		}
+
+		return $array;
+
 	}
 }

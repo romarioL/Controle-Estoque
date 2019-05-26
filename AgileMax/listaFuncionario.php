@@ -56,7 +56,7 @@
               <td><?php echo $valor['nome'] ?></td>
               <td><?php  echo $valor['usuario'];?></td>
               <td><?php  echo $valor['senha']?></td>
-              <td><a href="" class="btn btn-warning mr-5">Editar</a><a href="" class="btn btn-danger">Deletar</a></td>
+              <td><a href="editar.php?id=<?php echo $valor['id']; ?>" class="btn btn-warning mr-5">Editar</a><a href="" class="btn btn-danger">Deletar</a></td>
             </tr>
           
         <?php } ?>

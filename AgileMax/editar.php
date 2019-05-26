@@ -29,19 +29,24 @@
         <h2>Cadastro</h2>
       </div>
       <div class="card-body">
+        <form action="editar.php" method="post">
 
-        <form action="cadastrandoFuncionario.php" method="post">
-         
-         
+          <?php require_once 'classes/ClassFuncionario.php';
+        $funcionario = new ClassFuncionario();
+        $array =  $funcionario->selecionarFuncionario(3);
+
+        foreach($array as $valor) {
+               
+          ?>
           <label for="nome">Nome</label>
-          <input type="text" class="form-control" name="nome">
+          <input type="text" class="form-control" name="nome" value="<?php  echo $valor['nome'];?>">
           <label for="usuario">Usuario</label>
-          <input type="text" class="form-control" name="usuario">
+          <input type="text" class="form-control" name="usuario" value="<?php echo $valor['usuario']; ?>">
           <label for="senha">Senha</label>
-          <input type="password" class="form-control" name="senha">
-          <input type="submit" class="btn btn-primary mt-3" value="Logar">
+          <input type="password" class="form-control" name="senha" value="<?php echo $valor['senha']; ?>">
+          <input type="submit" class="btn btn-warning mt-3" value="Editar">
 
-        
+          <?php } ?>
        </form>
       </div>
     </div>
