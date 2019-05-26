@@ -37,6 +37,7 @@
               <th scope="col">Nome</th>
               <th scope="col">Usuario</th>
               <th scope="col">Senha</th>
+              <th scope="col">Ação</th>
             </tr>
           </thead>
           <tbody>
@@ -55,6 +56,7 @@
               <td><?php echo $valor['nome'] ?></td>
               <td><?php  echo $valor['usuario'];?></td>
               <td><?php  echo $valor['senha']?></td>
+              <td><a href="" class="btn btn-warning mr-5">Editar</a><a href="" class="btn btn-danger">Deletar</a></td>
             </tr>
           
         <?php } ?>
