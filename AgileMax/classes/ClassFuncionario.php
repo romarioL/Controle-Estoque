@@ -90,4 +90,15 @@ class ClassFuncionario extends ClassConexao {
 		$stm->execute();
 
 	}
+
+	public function deletarFuncionario($id) {
+
+		$conectar = $this->conectar();
+		$stm = $conectar->prepare("DELETE   FROM funcionarios WHERE id = :id");
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->execute();
+
+		
+
+	}
 }
