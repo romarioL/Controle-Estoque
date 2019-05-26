@@ -1,7 +1,7 @@
 <?php 
 session_start();
 
-if($_SESSION['logado'] = true) {
+if( isset($_SESSION['logado']) && $_SESSION['logado'] = true) {
   header('location: principal.php');
 }
  ?>
@@ -30,7 +30,7 @@ if($_SESSION['logado'] = true) {
 
     <div id="modalLogin" class="modal">
 
-      <form  action="login.php" method="post" class="formLoin">
+      <form  action="login.php" method="post" class="formLogin">
 
         <label for="usuario">Usuario</label>
         <input type="text" class="form-control" name="usuario">

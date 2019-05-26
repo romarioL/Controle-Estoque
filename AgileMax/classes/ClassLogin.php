@@ -30,7 +30,7 @@ class ClassLogin extends ClassConexao {
 	public function logar() {
 
 		$conexao = $this->conectar();
-		$bfetch = $conexao->prepare("SELECT * FROM usuarios WHERE usuario = :usuario AND senha = :senha");
+		$bfetch = $conexao->prepare("SELECT * FROM funcionarios WHERE usuario = :usuario AND senha = :senha");
 		$bfetch->bindParam(":usuario", $this->usuario, \PDO::PARAM_STR);
 		$bfetch->bindParam(":senha", $this->senha, \PDO::PARAM_STR);
 		$bfetch->execute();
@@ -43,10 +43,10 @@ class ClassLogin extends ClassConexao {
          	$_SESSION['logado'] = false;
          }
 
-
+          
       
 
-         var_dump($logado);
+         
 
 	}
 

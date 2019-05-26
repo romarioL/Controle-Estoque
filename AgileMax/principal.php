@@ -49,6 +49,7 @@
           <a class="nav-link" href="estoque.php">Estoque</a>
       </li>
     </ul>
+    <a href="logout.php" class="btn btn-primary">Logout</a>
   </div>
 </nav>
 
