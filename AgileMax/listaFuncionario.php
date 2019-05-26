@@ -39,6 +39,7 @@
               <th scope="col">Senha</th>
             </tr>
           </thead>
+          <tbody>
         <?php
         require_once 'classes/ClassFuncionario.php';
         $funcionario = new ClassFuncionario();
@@ -48,15 +49,16 @@
          
         
         ?>
-         <tbody>
+         
             <tr>
               <th scope="row"><?php echo $valor['id'] ?></th>
               <td><?php echo $valor['nome'] ?></td>
               <td><?php  echo $valor['usuario'];?></td>
               <td><?php  echo $valor['senha']?></td>
             </tr>
-          </tbody>
+          
         <?php } ?>
+        </tbody>
         </table>
       </div>
     </div>
