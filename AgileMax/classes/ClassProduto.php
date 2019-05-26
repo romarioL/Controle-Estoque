@@ -43,4 +43,14 @@ class ClassProduto extends ClassConexao {
 	public function setFuncionario($funcionario) {
 		$this->funcionario = $funcionario;
 	}
+
+	public function cadastrarProduto() {
+		$conexao = $this->conectar();
+		$stm = $conexao->prepare("INSERT INTO produtos(codProduto, nome, quantidade, id_funcionario) VALUES(:codProduto, :nome, :quantidade, :id_funcionario)");
+		$stm->bindParam(":codProduto", $this->codProduto, \PDO::PARAM_INT);
+		$stm->bindParam(":nome", $this->nome, \PDO::PARAM_STR);
+		$stm->bindParam(":quantidade", $this->quantidade, \PDO::PARAM_INT);
+		$stm->bindParam(":id_funcionario", $this->funcionario, \PDO::PARAM_INT);
+		$stm->execute();
+	}
 }
