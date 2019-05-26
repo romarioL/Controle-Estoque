@@ -46,6 +46,8 @@
         $funcionario = new ClassFuncionario();
         $array =  $funcionario->listarFuncionarios();
 
+        if(isset($array)) {
+
         foreach($array as $valor) {
          
         
@@ -64,7 +66,7 @@
                   <a href="deletar.php?id=<?php echo $valor['id']; ?>" class="btn btn-danger">Deletar</a>
               </div>
           
-        <?php } ?>
+        <?php } } ?>
         </tbody>
         </table>
       </div>

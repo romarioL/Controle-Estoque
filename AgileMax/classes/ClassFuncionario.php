@@ -57,8 +57,11 @@ class ClassFuncionario extends ClassConexao {
 			
 		}
 
-		return $array;
+		 if(isset($array)) {
+			return $array;
 	}
+
+}
 
 	public function selecionarFuncionario($id) {
 
