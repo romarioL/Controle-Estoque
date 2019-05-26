@@ -43,4 +43,20 @@ class ClassFuncionario extends ClassConexao {
 		$stm->execute();
 
 	}
+
+	public function listarFuncionarios() {
+		$conectar = $this->conectar();
+		$stm = $conectar->prepare("SELECT * FROM funcionarios");
+		$stm->execute();
+		$i = 0;
+		while($fetch = $stm->fetch(\PDO::FETCH_ASSOC)) {
+			$array[$i] = ['id' => $fetch['id'], 'nome' => $fetch['nome'], 'usuario' => $fetch['usuario'], 'senha' => $fetch['senha'] ];
+
+		
+          $i++;
+			
+		}
+
+		return $array;
+	}
 }

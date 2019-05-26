@@ -98,7 +98,7 @@
    							 <a class="nav-link active" href="cadastrarFuncionario.php"> Cadastrar funcionário</a>
   						</li>
   						<li class="nav-item">
-    						<a class="nav-link" href="listaFuncionario.php">Lista funcionário</a>
+    						<a class="nav-link" href="listaFuncionario.php">Listar funcionários</a>
   						</li>
   		                <li class="nav-item">
     						<a class="nav-link" href="vendas.php">Vendas</a>
