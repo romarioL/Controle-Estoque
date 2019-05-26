@@ -78,4 +78,16 @@ class ClassFuncionario extends ClassConexao {
 		return $array;
 
 	}
+
+	public function editarUsuario($id) {
+
+		$conectar = $this->conectar();
+		$stm = $conectar->prepare("UPDATE funcionarios  SET nome = :nome, usuario = :usuario, senha = :senha WHERE id = :id");
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->bindParam(":nome", $this->nome, \PDO::PARAM_STR);
+		$stm->bindParam(":usuario", $this->usuario, \PDO::PARAM_STR);
+		$stm->bindParam(":senha", $this->senha, \PDO::PARAM_STR);
+		$stm->execute();
+
+	}
 }

@@ -29,7 +29,7 @@
         <h2>Cadastro</h2>
       </div>
       <div class="card-body">
-        <form action="editar.php" method="post">
+        <form action="editando.php" method="post">
 
           <?php require_once 'classes/ClassFuncionario.php';
         $funcionario = new ClassFuncionario();
@@ -38,6 +38,7 @@
         foreach($array as $valor) {
                
           ?>
+           <input type="hidden" class="form-control" name="id" value="<?php  echo $valor['id'];?>">
           <label for="nome">Nome</label>
           <input type="text" class="form-control" name="nome" value="<?php  echo $valor['nome'];?>">
           <label for="usuario">Usuario</label>
