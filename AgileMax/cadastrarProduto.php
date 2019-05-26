@@ -51,7 +51,7 @@
 
             foreach($array as $valor) {
              ?>
-             <option value="<?php echo $valor['id']; ?>"><?php  echo $valor['id'];?></option> 
+             <option value="<?php echo $valor['id']; ?>"><?php  echo $valor['nome'];?></option> 
 
            <?php } ?>
           </select>
