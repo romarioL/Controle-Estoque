@@ -33,7 +33,7 @@
 
           <?php require_once 'classes/ClassFuncionario.php';
         $funcionario = new ClassFuncionario();
-        $array =  $funcionario->selecionarFuncionario(3);
+        $array =  $funcionario->selecionarFuncionario($_GET['id']);
 
         foreach($array as $valor) {
                
