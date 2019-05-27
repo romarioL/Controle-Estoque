@@ -56,7 +56,7 @@ class ClassProduto extends ClassConexao {
 
 	public function selecionarProdutos() {
 		$conexao = $this->conectar();
-		$stm = $conexao->prepare("SELECT nome, quantidade FROM produtos");
+		$stm = $conexao->prepare("SELECT id, nome, codProduto, quantidade FROM produtos");
 		$stm->bindParam(":nome", $this->nome, \PDO::PARAM_STR);
 		$stm->bindParam(":quantidade", $this->quantidade, \PDO::PARAM_INT);
 		$stm->execute();
@@ -65,7 +65,7 @@ class ClassProduto extends ClassConexao {
 
 		while($fetch = $stm->fetch(\PDO::FETCH_ASSOC)) {
 
-			$array[$i] = ['nome' => $fetch['nome'], 'quantidade' => $fetch['quantidade']];
+			$array[$i] = ['id' => $fetch['id'], 'nome' => $fetch['nome'], 'quantidade' => $fetch['quantidade'], 'codProduto' => $fetch['codProduto']];
 
 			$i++;
 

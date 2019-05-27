@@ -29,7 +29,19 @@
         <h2>Lista de produtos</h2>
       </div>
       <div class="card-body">
+         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
 
+          <table class="table mt-5">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Código do produto</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
         <?php
 
         require_once 'classes/ClassProduto.php';
@@ -42,14 +54,33 @@
         foreach($dados as $dado) {
           $array[$i] = array('y' => $dado['quantidade'], 'label' => $dado['nome']);
           $i++;
-        }
+        
 
 
 
          ?>
 
-         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+          <div id="deletarModalProduto" class="modal">
+                  <p>Você deseja mesmo deletar?</p>
+                  <a href="deletarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-danger">Deletar</a>
+              </div>
 
+          <tr>
+              <th scope="row"><?php echo $dado['id'] ?></th>
+              <td><?php echo $dado['nome'] ?></td>
+              <td><?php  echo $dado['codProduto'];?></td>
+              <td><?php  echo $dado['quantidade']?></td>
+              <td><a href="editarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-warning mr-5">Editar</a><a href="#deletarModalProduto" rel="modal:open" class="btn btn-danger">Deletar</a></td>
+          </tr>
+
+       
+
+      <?php } ?>
+
+          </tbody>
+        </table>
+
+        
 
          
       </div>
