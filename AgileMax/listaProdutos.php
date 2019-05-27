@@ -63,14 +63,14 @@
                     animationEnabled: true,
                     theme: "light2",
                     title:{
-                      text: "Gold Reserves"
+                      text: "Produtos"
                     },
                     axisY: {
-                      title: "Gold Reserves (in tonnes)"
+                      title: "Produtos(quantidade)"
                     },
                     data: [{
                       type: "column",
-                      yValueFormatString: "#,##0.## tonnes",
+                      yValueFormatString: "#,##0.## ítens",
                       dataPoints: <?php echo json_encode($array, JSON_NUMERIC_CHECK); ?>
                     }]
                   });
