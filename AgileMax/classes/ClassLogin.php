@@ -37,14 +37,14 @@ class ClassLogin extends ClassConexao {
          
          if($bfetch->rowCount() > 0) {
 
-             return  $_SESSION['logado'] = true;
+            return $logado = $bfetch->rowCount();
 
          	
 
            
          }else {
-         	
-         	 return $_SESSION['logado'] = false;
+
+             return $logado = 0;
          }
 
           
