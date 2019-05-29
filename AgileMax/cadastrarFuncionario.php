@@ -3,12 +3,13 @@
 
  require_once 'classes/ClassLogin.php';
 
- if($_SESSION['logado'] == 0) {
+  if($_SESSION['logado'] == 0) {
  	header('location: index.php');
 
- }
+ } 
 
- var_dump($_SESSION['logado'])
+
+
 ?>
 
 <html lang="pt">
