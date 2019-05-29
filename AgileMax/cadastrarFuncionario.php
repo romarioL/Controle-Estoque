@@ -7,6 +7,8 @@
  	header('location: index.php');
 
  }
+
+ var_dump($_SESSION['logado'])
 ?>
 
 <html lang="pt">

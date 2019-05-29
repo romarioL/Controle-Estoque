@@ -9,9 +9,15 @@ $logar->setSenha($_POST['senha']);
 
 $logado = $logar->logar();
 
-if($logado = true) {
-	$_SESSION['logado'] = true;
+if($logado == 1) {
+	$_SESSION['logado'] = $logado;
+}else {
+	$_SESSION['logado'] = 0;
 }
+
+
+
+
 
 header('location: principal.php');
 

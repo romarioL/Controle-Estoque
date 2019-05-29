@@ -6,6 +6,8 @@
  if($_SESSION['logado'] == 0) {
  	header('location: index.php');
  }
+
+
 ?>
 
 <html lang="pt">

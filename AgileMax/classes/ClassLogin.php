@@ -34,25 +34,21 @@ class ClassLogin extends ClassConexao {
 		$bfetch->bindParam(":usuario", $this->usuario, \PDO::PARAM_STR);
 		$bfetch->bindParam(":senha", $this->senha, \PDO::PARAM_STR);
 		$bfetch->execute();
-         
-         if($bfetch->rowCount() > 0) {
 
-            return $logado = $bfetch->rowCount();
 
-         	
+		if($bfetch->rowCount() != 1) {
 
-           
-         }else {
+			$logado = 0;
 
-             return $logado = 0;
-         }
+			return $logado;
 
-          
-      
+		}else {
+			$logado = 1;
+			return $logado;
+		}
 
-         
 
-	}
+   }
 
 
 }
