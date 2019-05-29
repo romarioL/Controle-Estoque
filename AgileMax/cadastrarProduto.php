@@ -3,7 +3,7 @@
 
  require_once 'classes/ClassLogin.php';
 
- if($_SESSION['logado'] = false) {
+ if($_SESSION['logado'] == false) {
  	header('location: index.php');
 
  }
