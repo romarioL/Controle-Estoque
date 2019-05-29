@@ -9,11 +9,7 @@ $logar->setSenha($_POST['senha']);
 
 $logado = $logar->logar();
 
-if($logado == 1) {
-	$_SESSION['logado'] = $logado;
-}else {
-	$_SESSION['logado'] = 0;
-}
+$_SESSION['logado'] = $logado;
 
 
 
