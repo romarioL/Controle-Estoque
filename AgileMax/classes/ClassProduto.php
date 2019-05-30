@@ -137,6 +137,14 @@ public function cadastrarQuantidade($quantidade, $id) {
 		 	}
 	
 }
+
+
+    public function deletarProduto($id) {
+    	$conexao = $this->conectar();
+    	$stm = $conexao->prepare("DELETE FROM produtos WHERE id = :id");
+    	$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+    	$stm->execute();
+    }
 	
 
 }
