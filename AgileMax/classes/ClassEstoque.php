@@ -10,8 +10,13 @@ class ClassEstoque extends ClassVendas {
 	public function calcularEstoqueMinimo($id) {
 
 		$array = $this->selecionarProdutoPorId($id);
+
+
+
 	    foreach ($array as $dado) {
-	    	if($dado['quantidade'] >= $this->estoqueMinimo){
+
+
+	    	if($dado['quantidade'] > $this->estoqueMinimo){
                  
                  $mensagem = "Produto dentro da quantidade desejada";
                  return $mensagem;
