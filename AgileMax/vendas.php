@@ -1,0 +1,122 @@
+<?php
+ session_start();
+
+ require_once 'classes/ClassLogin.php';
+
+ if($_SESSION['logado'] == 0) {
+ 	header('location: index.php');
+
+ }
+?>
+
+<html lang="pt">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/jquery.modal.min.css">
+     <link rel="stylesheet" href="css/style.css">
+
+    <title>Vendas</title>
+  </head>
+  <body class="bg-info">
+
+    <div class=" container card mt-5">
+      <div class="card-header">
+        <h2>Lista de produtos</h2>
+      </div>
+      <div class="card-body">
+         <div id="chartContainer" style="height: 370px; width: 100%;"></div>
+
+          <table class="table mt-5">
+          <thead>
+            <tr>
+              <th scope="col">ID</th>
+              <th scope="col">Nome</th>
+              <th scope="col">Código do produto</th>
+              <th scope="col">Quantidade</th>
+              <th scope="col">Ação</th>
+            </tr>
+          </thead>
+          <tbody>
+        <?php
+
+        require_once 'classes/ClassProduto.php';
+
+        $produto = new ClassProduto();
+        $dados = $produto->selecionarProdutos();
+
+        $i = 0;
+
+        foreach($dados as $dado) {
+          $array[$i] = array('y' => $dado['quantidade'], 'label' => $dado['nome']);
+          $i++;
+        
+
+
+
+         ?>
+
+          <div id="venderProduto" class="modal">
+                  <p>Quantos você deseja vender?</p>
+                  <form action = "venderProduto.php?id=<?php echo $dado['id']; ?>" method ="post">
+                  <input class = "form-control" name="vendidos"><br>
+                  <input type="submit" class="btn btn-info">
+                </form>
+              </div>
+
+          <tr>
+              <th scope="row"><?php echo $dado['id'] ?></th>
+              <td><?php echo $dado['nome'] ?></td>
+              <td><?php  echo $dado['codProduto'];?></td>
+              <td><?php  echo $dado['quantidade']?></td>
+              <td><a href="editarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-warning mr-5">Editar</a><a href="#venderProduto" rel="modal:open" class="btn btn-info">Vender</a></td>
+          </tr>
+
+       
+
+      <?php } ?>
+
+          </tbody>
+        </table>
+
+        
+
+         
+      </div>
+    </div>
+
+   
+<script type="text/javascript">
+           window.onload = function() {
+ 
+                  var chart = new CanvasJS.Chart("chartContainer", {
+                    animationEnabled: true,
+                    theme: "light2",
+                    title:{
+                      text: "Produtos"
+                    },
+                    axisY: {
+                      title: "Produtos(quantidade)"
+                    },
+                    data: [{
+                      type: "column",
+                      yValueFormatString: "#,##0.## ítens",
+                      dataPoints: <?php echo json_encode($array, JSON_NUMERIC_CHECK); ?>
+                    }]
+                  });
+                  chart.render();
+                   
+                  }
+         </script>
+
+  <script src="js/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <script src="assets/jquery.modal.min.js"></script>
+    <script src="assets/canvasjs.min.js"></script>
+  </body>
+</html>

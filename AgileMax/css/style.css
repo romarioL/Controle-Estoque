@@ -25,6 +25,11 @@
 	height: 150px;
 }
 
+ #venderProduto {
+ 	width: 220px;
+ 	height: 180px;
+ }
+
 .painel {
 	margin: 50px;
 }

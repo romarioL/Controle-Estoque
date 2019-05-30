@@ -8,7 +8,7 @@ class ClassProduto extends ClassConexao {
 
 	private $nome; 
 
-	private $quantidade;
+	protected $quantidade;
 
 	private $funcionario;
 
@@ -76,5 +76,29 @@ class ClassProduto extends ClassConexao {
 		 	}
 	
 }
+
+public function selecionarQuantidadePorId($id) {
+		$conexao = $this->conectar();
+		$stm = $conexao->prepare("SELECT  quantidade FROM produtos WHERE id = :id");
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->execute();
+
+	while($fetch = $stm->fetch(\PDO::FETCH_ASSOC)) {
+			$quantidade= $fetch['quantidade'];
+			return $quantidade;
+		} 
+
+
+}
+
+public function cadastrarQuantidade($quantidade, $id) {
+		$conexao = $this->conectar();
+		$stm = $conexao->prepare("UPDATE produtos SET quantidade = :quantidade WHERE id = :id");
+		$stm->bindParam(":quantidade", $quantidade, \PDO::PARAM_INT);
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->execute();
+
+
+	} 
 
 }
