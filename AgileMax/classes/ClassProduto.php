@@ -101,4 +101,21 @@ public function cadastrarQuantidade($quantidade, $id) {
 
 	} 
 
+
+	public function editarProduto($quantidade, $id) {
+		$conexao = $this->conectar();
+		$stm = $conexao->prepare("UPDATE produtos SET quantidade = :quantidade, nome = :nome, codProduto = :codProduto ,  funcionario = :funcionario WHERE id = :id");
+		$stm->bindParam(":quantidade", $this->quantidade, \PDO::PARAM_INT);
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->bindParam(":nome", $this->nome, \PDO::PARAM_INT);
+		$stm->bindParam(":codProduto", $this->codProduto, \PDO::PARAM_INT);
+		$stm->bindParam(":funcionario", $this->funcionario, \PDO::PARAM_INT);
+		$stm->execute();
+
+
+	} 
+
+
+	
+
 }
