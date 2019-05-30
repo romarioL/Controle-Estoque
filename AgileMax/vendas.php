@@ -60,23 +60,21 @@
 
          ?>
 
-          <div id="venderProduto" class="modal">
-                  <p>Quantos você deseja vender?</p>
-                  <form action = "venderProduto.php?id=<?php echo $dado['id']; ?>" method ="post">
-                  <input class = "form-control" name="vendidos"><br>
-                  <input type="submit" class="btn btn-info">
-                </form>
-              </div>
+          
 
           <tr>
               <th scope="row"><?php echo $dado['id'] ?></th>
               <td><?php echo $dado['nome'] ?></td>
               <td><?php  echo $dado['codProduto'];?></td>
               <td><?php  echo $dado['quantidade']?></td>
-              <td><a href="editarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-warning mr-5">Editar</a><a href="#venderProduto" rel="modal:open" class="btn btn-info">Vender</a></td>
+              <td><form action = "venderProduto.php?id=<?php echo $dado['id']; ?>" method ="post">
+                  <input class = "form-control" name="vendidos"><br>
+                  <input type="submit" class="btn btn-info">
+                </form></td>
           </tr>
 
-       
+                  
+              
 
       <?php } ?>
 

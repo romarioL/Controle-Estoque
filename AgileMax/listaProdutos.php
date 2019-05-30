@@ -60,7 +60,7 @@
 
          ?>
 
-          <div id="deletarModalProduto" class="modal">
+          <div id="deletarModalProduto<?php echo $dado['id'] ?>" class="modal">
                   <p>Você deseja mesmo deletar?</p>
                   <a href="deletarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-danger">Deletar</a>
               </div>
@@ -70,7 +70,7 @@
               <td><?php echo $dado['nome'] ?></td>
               <td><?php  echo $dado['codProduto'];?></td>
               <td><?php  echo $dado['quantidade']?></td>
-              <td><a href="editarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-warning mr-5">Editar</a><a href="#deletarModalProduto" rel="modal:open" class="btn btn-danger">Deletar</a></td>
+              <td><a href="editarProduto.php?id=<?php echo $dado['id']; ?>" class="btn btn-warning mr-5">Editar</a><a href="#deletarModalProduto<?php  echo $dado['id'];?>" rel="modal:open" class="btn btn-danger">Deletar</a></td>
           </tr>
 
        
