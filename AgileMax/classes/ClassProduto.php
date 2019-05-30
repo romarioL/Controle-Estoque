@@ -102,20 +102,41 @@ public function cadastrarQuantidade($quantidade, $id) {
 	} 
 
 
-	public function editarProduto($quantidade, $id) {
+	public function editarProduto($id) {
 		$conexao = $this->conectar();
-		$stm = $conexao->prepare("UPDATE produtos SET quantidade = :quantidade, nome = :nome, codProduto = :codProduto ,  funcionario = :funcionario WHERE id = :id");
+		$stm = $conexao->prepare("UPDATE produtos SET quantidade = :quantidade, nome = :nome, codProduto = :codProduto  WHERE id = :id");
 		$stm->bindParam(":quantidade", $this->quantidade, \PDO::PARAM_INT);
 		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
-		$stm->bindParam(":nome", $this->nome, \PDO::PARAM_INT);
+		$stm->bindParam(":nome", $this->nome, \PDO::PARAM_STR);
 		$stm->bindParam(":codProduto", $this->codProduto, \PDO::PARAM_INT);
-		$stm->bindParam(":funcionario", $this->funcionario, \PDO::PARAM_INT);
 		$stm->execute();
+
+		echo $this->nome;
 
 
 	} 
 
+   public function selecionarProdutoPorId($id) {
+		$conexao = $this->conectar();
+		$stm = $conexao->prepare("SELECT id, nome, codProduto, quantidade FROM produtos WHERE id = :id");
+		$stm->bindParam(":id", $id, \PDO::PARAM_INT);
+		$stm->execute();
 
+		$i = 0;
+
+		while($fetch = $stm->fetch(\PDO::FETCH_ASSOC)) {
+
+			$array[$i] = ['id' => $fetch['id'], 'nome' => $fetch['nome'], 'quantidade' => $fetch['quantidade'], 'codProduto' => $fetch['codProduto']];
+
+			$i++;
+
+		}
+
+		 if(isset($array)) {
+                return $array;
+		 	}
+	
+}
 	
 
 }
