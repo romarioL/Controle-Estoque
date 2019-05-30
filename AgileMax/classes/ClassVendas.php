@@ -5,9 +5,6 @@ require_once "ClassProduto.php";
 class ClassVendas extends ClassProduto {
 
 	
-
-	private $estoqueMinimo = 50;
-
 	private $total;
 
 	public function getTotal() {
@@ -24,13 +21,5 @@ class ClassVendas extends ClassProduto {
 	}
 
 
-	public function estoqueMinimo($quantidade){
-
-
-		if($quantidade <= $this->estoqueMinimo) {
-               $avisoTela = "Chegamos no estoque mínimo, avise seu chefe";
-               return $avisoTela;
-		}
-	}
 	
 }

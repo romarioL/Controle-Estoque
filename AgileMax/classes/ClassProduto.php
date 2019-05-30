@@ -135,6 +135,8 @@ public function cadastrarQuantidade($quantidade, $id) {
 		 if(isset($array)) {
                 return $array;
 		 	}
+
+		 	
 	
 }
 
