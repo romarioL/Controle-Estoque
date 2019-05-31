@@ -29,23 +29,7 @@
 
 <div class="painel container">
 	<div class="row mt-5 mb-5">
-		<div class="col-sm-12 col-lg-6 mb-5">
-			<div class="card">
-				<div class="card-header"><h3 class="center">Clientes</h3></div>
-				<div class="card-body">
-					<ul class="nav flex-column">
- 						 <li class="nav-item">
-   							 <a class="nav-link active" href="cadastrarCliente.php">Cadastrar clientes</a>
-  						</li>
-  						<li class="nav-item">
-    						<a class="nav-link" href="listaClientes.php">Listar clientes</a>
-  						</li>
-  		
-					</ul>
-				</div>
-			</div>
-		</div>
-		<div class="col-sm-12 col-lg-6">
+		<div class="col-sm-12 col-lg-12">
 			<div class="card">
 				<div class="card-header"><h3 class="center">Produtos</h3></div>
 				<div class="card-body">
