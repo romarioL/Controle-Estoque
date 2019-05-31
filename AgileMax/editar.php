@@ -23,7 +23,7 @@
     <title>Cadastrar Funcionário</title>
   </head>
   <body class="bg-info">
-
+ <?php  include "navbar.php";?>
     <div class=" container card mt-5">
       <div class="card-header">
         <h2>Cadastro</h2>
