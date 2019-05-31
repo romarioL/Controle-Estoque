@@ -9,19 +9,13 @@
         <a class="nav-link" href="principal.php">Home <span class="sr-only">(current)</span></a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="cadastrarCliente.php">Cadastrar cliente</a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" href="cadastrarProduto.php">Cadastrar produto</a>
-      </li>
-       <li class="nav-item">
-        <a class="nav-link" href="listaClientes.php">Lista  de clientes</a>
       </li>
       <li class="nav-item">
           <a class="nav-link" href="listaProdutos.php">Lista de produtos</a>
       </li>
        <li class="nav-item">
-          <a class="nav-link" href="estoque.php">Estoque</a>
+          <a class="nav-link" href="produtosEstoque.php">Estoque</a>
       </li>
     </ul>
     <a href="logout.php" class="btn btn-primary">Logout</a>
